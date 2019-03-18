@@ -15,9 +15,9 @@ Si llamas a la función `plumb()` sobre este archivo, la variable `counter` se c
 
 Por defecto, cuando creas un nuevo enrutador Plumber (que sucede de forma implícita cuando llamas a la función `plumb()` sobre un archivo), se crea un nuevo ambiente específicamente para este enrutador. Es en este ambiente en el que todas las expresiones van a ser evaluadas, y todos los *endopoints* serán invocados.
 
-Esto puede ser muy importante, si consideras instaltar enrutadores uno sobre otro. En ese caso, posiblemente esperes que tengan la capacidad de compartir el estado entre ellos vía el ambiente, pero eso no es una función por defecto. Si estás [creando tus router programáticamente](#uso programático), entonces puedes especificar un ambiente a la hora de inicializar tu enrutador Plumber usando el parámetro `envir`. Este es el amiente en el que:
+Esto puede ser muy importante, si consideras instaltar enrutadores uno sobre otro. En ese caso, posiblemente esperes que tengan la capacidad de compartir el estado entre ellos vía el ambiente, pero eso no es una función por defecto. Si estás [creando tus router programáticamente](#uso programático), entonces puedes especificar un ambiente a la hora de inicializar tu enrutador Plumber usando el parámetro `envir`. Este es el ambiente en el que:
 
- - A decorated R script, if provided, will be `source()`d.
+ - Si se provee una secuencia de comandos de R será leída por la función `source()`.
  - Todas las expresiones serán evaluados.
  - Todos los *endpoint* y las funciones de filtrado serán ejecutadas.
  
