@@ -18,8 +18,8 @@ Por defecto, cuando creas un nuevo enrutador Plumber (que sucede de forma implí
 Esto puede ser muy importante, si consideras instaltar enrutadores uno sobre otro. En ese caso, posiblemente esperes que tengan la capacidad de compartir el estado entre ellos vía el ambiente, pero eso no es una función por defecto. Si estás [creando tus router programáticamente](#uso programático), entonces puedes especificar un ambiente a la hora de inicializar tu enrutador Plumber usando el parámetro `envir`. Este es el amiente en el que:
 
  - A decorated R script, if provided, will be `source()`d.
- - All expressions will be evaluated.
- - All endpoint and filter functions will be executed.
+ - Todas las expresiones serán evaluados.
+ - Todos los *endpoint* y las funciones de filtrado serán ejecutadas.
  
  It is important to be aware that subrouters, by default, would each have their own environment. If you want multiple Plumber routers to share an environment, you will need to provide a single, shared environment when you create the routers.
 
