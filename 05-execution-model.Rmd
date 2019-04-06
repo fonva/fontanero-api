@@ -21,13 +21,13 @@ Esto puede ser muy importante, si consideras instaltar enrutadores uno sobre otr
  - Todas las expresiones serán evaluados.
  - Todos los *endpoint* y las funciones de filtrado serán ejecutadas.
  
- It is important to be aware that subrouters, by default, would each have their own environment. If you want multiple Plumber routers to share an environment, you will need to provide a single, shared environment when you create the routers.
+Es importante estar consciente de que todos los sub-enrutadores `subrouter`, por defecto, tendrán su propio ambiente. Si deseas que múltiples enrutadores Plumber compartan un ambiente, necesitarás proveer un único ambiente compartido a la hora de crear los enrutadores.
 
-## Performance & Request Processing
+## Desempeño y Procesamiento de la Solicitud
 
-R is a single-threaded programming language, meaning that it can only do one task at a time. This is still true when serving APIs using Plumber, so if you have a single endpoint that takes two seconds to generate a response, then every time that endpoint is requested, your R process will be unable to respond to any additional incoming requests for those two seconds.
+R es un lenguaje de programación de un único hilo, lo que quiere decir que sólo puede realizar una tarea a la vez. Esto sigue siendo así cuando se entregan APIs utilizando Plumber, así que si tienes un único *endpoint* que dura dos segundos en generar una respuesta, quiere decir que cada vez que el *endpoint* sea consultado, su proceso de R no será capaz de responder a ninguna solicitud entrante adicional durante esos dos segundos.
 
-Incoming HTTP requests are serviced in the order in which they appeared, but if requests are coming in more quickly than they can be processed by the API, a backlog of requests will accrue. The common solutions to this problem are to do either or both of:
+Las solicitudes HTTP entrantes son atendidas en el orden en el que fueron recibidas, pero si las solicitudes entran a una velocidad mayor que la que pueden ser procesadas por el APIbut if requests are coming in more quickly than they can be processed by the API, se encolan en un registro de solicitudes. Las solució común a este problema es utilizar una de las siguientes opciones, o ambas:
 
  1. Keep your API performant. All filters and endpoints should complete very quickly and any long-running or complicated tasks should be done outside of the API process.
  2. Run multiple R processes to redundantly host a single Plumber API and load-balance incoming requests between all available processes. See the [hosting section](#hosting) for details on which hosting environments support this feature.
